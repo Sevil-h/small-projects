@@ -5,7 +5,7 @@ const initProgressSteps = () => {
   const next = document.getElementById('next');
   const circles = document.querySelectorAll('.circle');
 
-  let currentActive = 1;
+  let currentActive = 0;
   next.addEventListener('click', () => {
     currentActive++
     if(currentActive > circles.length){
