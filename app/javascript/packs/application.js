@@ -9,6 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import { initExpandingCards } from '../components/expanding';
 import { initProgressSteps } from '../components/progress';
+import { initSearchWidget } from '../components/search-widget';
 
 Rails.start()
 Turbolinks.start()
@@ -31,4 +32,5 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initExpandingCards();
   initProgressSteps();
+  initSearchWidget();
 });
