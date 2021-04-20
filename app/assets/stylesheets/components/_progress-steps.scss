@@ -1,0 +1,45 @@
+.progress-container{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 30px;
+  max-width: 100%;
+}
+.circle{
+  border: 2px solid white;
+  border-radius: 50%;
+  z-index: 1;
+  background-color: $gray;
+  color: white;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.4s ease;
+  .circle.active{
+    border-color: $green;
+  }
+}
+.progress{
+  background-color: $green;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 4px;
+  width: 50%;
+  transform: translateY(-50%);
+  transition: 0.4s ease;
+  z-index: 0;
+}
+.progress-container::before{
+  background-color: $gray;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  z-index: 0;
+  content: '';
+}
