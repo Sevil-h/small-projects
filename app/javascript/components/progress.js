@@ -16,31 +16,31 @@ const initProgressSteps = () => {
   prev.addEventListener('click', () => {
     currentActive--
     if(currentActive < 1){
-      currentActive = 1
+      currentActive = 0
     }
     update();
   });
-}
-
-function update() {
-  circles.forEach((circle, index) => {
-    if(index < currentActive){
-      circle.classList.add('active');
+  function update() {
+    circles.forEach((circle, index) => {
+      if(index < currentActive){
+        circle.classList.add('active');
+      } else {
+        circle.classList.remove('active');
+      }
+    });
+    const actives = document.querySelectorAll('.active')
+    progress.style.width = (actives.length - 1) / (circles.length - 1) * 100 + "%";
+    if(currentActive === 0){
+      prev.disabled = true;
+    } else if(currentActive === circles.length -  1){
+      next.disabled = true;
     } else {
-      circle.classList.remove('active');
+      prev.disabled = false;
+      next.disabled = false;
     }
-  });
-  const actives = document.querySelectorAll('.active')
-  progress.style.width = (actives.length - 1) / (circle.length - 1) * 100 + "%";
-  if(currentActive === 1){
-    prev.disabled = true;
-  } else if(currentActive === circle.length){
-    next.disabled = true;
-  } else {
-    prev.disabled = false;
-    next.disabled = false;
   }
 }
+
 
 export { initProgressSteps };
 
